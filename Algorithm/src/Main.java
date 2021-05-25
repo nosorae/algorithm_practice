@@ -1,186 +1,96 @@
 
 import java.util.*;
-import java.io.*;
 
 /*
- * 백준 16935번 배열돌리기3
- * 이동은 이동후의 인덱스를 기준으로 이동 전의 인덱스를 찾으면 쉽다.
- * 이동 전의 인덱스는 규칙성을 찾아 구하면 쉽다.
+ * 백준 16926번 배열돌리기1,16927번 배열돌리기2 
+ * 어려운 문제를 쉬운 문제로 변형해서 풀이하는 아이디어 
+ * 즉 2차원배열의 테두리별 이동문제를 1차원배열의 원형 이동문제로 전환해서 해결
  */
 
 public class Main {
 
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		int n = Integer.parseInt(st.nextToken());
-		int m = Integer.parseInt(st.nextToken());
-		int r = Integer.parseInt(st.nextToken());
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int m = sc.nextInt();
+		int r = sc.nextInt();
 		int[][] arr = new int[n][m];
 
 		for(int i = 0; i < n; i++) {
-			st = new StringTokenizer(br.readLine());
 			for(int j = 0; j < m; j++) {
-				arr[i][j] = Integer.parseInt(st.nextToken());
+				arr[i][j] = sc.nextInt();
 			}
 		}
 
-		st = new StringTokenizer(br.readLine());
-		for(int i = 0; i < r; i++) {
-			arr = arrayRotate(arr, Integer.parseInt(st.nextToken()));
-		}
+		border(arr, r);
 
-		//출력
 		printArray2(arr);
 
+	}
+
+	static void border(int[][] arr, int r) {
+		int n = arr.length;
+		int m = arr[0].length;
+		int groupNum = min(n, m)/2;
+
+		//초기화
+		LinkedList<LinkedList<Integer>> list = new LinkedList<LinkedList<Integer>>();
+		for(int i = 0; i < groupNum; i++) {
+			list.add(new LinkedList<Integer>());
+		}
+
+		//1차원 배열화
+		for(int k = 0; k < groupNum; k++) {
+			for(int i = k; i < m-1-k; i++) {
+				list.get(k).add(arr[k][i]);
+			}
+			for(int i = k; i < n-1-k; i++) {
+				list.get(k).add(arr[i][m-1-k]);
+			}
+			for(int i = m-1-k; i > k; i--) {
+				list.get(k).add(arr[n-1-k][i]);
+			}
+			for(int i = n-1-k; i > k; i--) {
+				list.get(k).add(arr[i][k]);
+			}
+		}
+
+		//이동 값을 생각하면서, 다시 2차원 배열화
+
+		for(int k = 0; k < groupNum; k++) {
+			int idx = r%list.get(k).size();
+			//이 idx가 새로운 시작점이고, 0~시작점직전 까지의 숫자들을 차례대로 빼서 뒤로 넣어준다.
+			for(int i = 0; i < idx; i++) {
+				list.get(k).add(list.get(k).remove(0));
+			}
+
+
+
+			for(int i = k; i < m-1-k; i++) {
+				arr[k][i] = list.get(k).remove(0);
+			}
+			for(int i = k; i < n-1-k; i++) {
+				arr[i][m-1-k] = list.get(k).remove(0);
+
+			}
+			for(int i = m-1-k; i > k; i--) {
+				arr[n-1-k][i] = list.get(k).remove(0);
+
+			}
+			for(int i = n-1-k; i > k; i--) {
+				arr[i][k] = list.get(k).remove(0);
+			}
+		}
 
 	}
 
-	public static int[][] arrayRotate(int[][] arr, int order) {
-		switch(order) {
-		case 1: 
-			reverse_upDown(arr);
-			return arr;
-		case 2:
-			reverse_leftRight(arr);
-			return arr;
-		case 3:
-			arr = rotate_right(arr);
-			return arr;
-		case 4: 
-			arr = rotate_left(arr);
-			return arr;
-		case 5:
-			arr = rotate_part_right(arr);
-			return arr;
-		default :
-			arr = rotate_part_left(arr);
-			return arr;
 
 
-		}
+
+
+	static int min(int a, int b) {
+		return (a < b) ? a : b;
 	}
-	public static void reverse_upDown(int[][] arr) {
-		for(int i = 0; i < arr.length/2; i++) {
-			for(int j = 0; j < arr[i].length; j++) {
-				swap(arr, i, j, arr.length-1-i, j);
-			}
-		}
-	}
-	public static void reverse_leftRight(int[][] arr) {
-		for(int i = 0; i < arr.length; i++) {
-			for(int j = 0; j < arr[i].length/2; j++) {
-				swap(arr, i, j, i, arr[i].length-1-j);
-			}
-		}
-	}
-
-	public static void swap(int[][] arr, int x, int y, int dx, int dy) {
-		int temp = arr[x][y];
-		arr[x][y] = arr[dx][dy];
-		arr[dx][dy] = temp;
-	}
-
-	public static int[][] rotate_right(int[][] before) {
-		int n = before.length;
-		int m = before[0].length;
-
-		int[][] after = new int[m][n];
-
-		for(int i = 0; i < m; i++) {
-			for(int j = 0; j < n; j++) {
-				after[i][j] = before[n-1-j][i];
-			}
-		}
-		return after;
-	}
-
-	public static int[][] rotate_left(int[][] before) {
-		int n = before.length;
-		int m = before[0].length;
-
-		int[][] after = new int[m][n];
-
-		for(int i = 0; i < m; i++) {
-			for(int j = 0; j < n; j++) {
-				after[i][j] = before[j][m-1-i];
-			}
-		}
-		return after;
-	}
-
-
-	public static int[][] rotate_part_right(int[][] before) {
-		int n = before.length;
-		int m = before[0].length;
-		int[][] after = new int[n][m];
-		
-		int dn = n/2;
-		int dm = m/2;
-
-		if(n%2 != 0) {
-			for(int i = 0; i < m; i++) {
-				after[n/2][i] = before[n/2][i];
-			}
-			dn++;
-		}
-		if(m%2 != 0) {
-			for(int i = 0; i <n; i++) {
-				after[i][m/2] = before[i][m/2];
-			}
-			dm++;
-		}
-		
-		for(int i = 0; i < n/2; i++) {
-			for(int j = 0; j <m/2; j++) {
-				after[i][j] = before[i+dn][j];
-				after[i][j+dm] = before[i][j];
-				after[i+dn][j+dm] = before[i][j+dm];
-				after[i+dn][j] = before[i+dn][j+dm];
-			}
-		}
-
-
-		return after;
-
-	}
-
-	public static int[][] rotate_part_left(int[][] before) {
-		int n = before.length;
-		int m = before[0].length;
-		int[][] after = new int[n][m];
-		
-		int dn = n/2;
-		int dm = m/2;
-
-		if(n%2 != 0) {
-			for(int i = 0; i < m; i++) {
-				after[n/2][i] = before[n/2][i];
-			}
-			dn++;
-		}
-		if(m%2 != 0) {
-			for(int i = 0; i <n; i++) {
-				after[i][m/2] = before[i][m/2];
-			}
-			dm++;
-		}
-		
-		for(int i = 0; i < n/2; i++) {
-			for(int j = 0; j <m/2; j++) {
-				after[i][j] = before[i][j+dm];
-				after[i][j+dm] = before[i+dn][j+dm];
-				after[i+dn][j+dm] = before[i+dn][j];
-				after[i+dn][j] = before[i][j];
-			}
-		}
-
-
-		return after;
-	}
-
 
 	public static void printArray2(int[][] arr) {
 		for(int i = 0; i < arr.length; i++) {
