@@ -14,5 +14,24 @@ public class ArrayFunctions {
 			System.out.println();
 		}
 	}
+	
+	
+	//1차원 배열 왼쪽으로 한 칸 당기기
+	static void push_left(int[] arr) {
+		int temp = arr[0];
+		for(int i = 0; i < arr.length-1; i++) {
+			arr[i] = arr[i+1];
+		}
+		arr[arr.length-1] = temp; 
+		
+	}
+	//1차원 배열 오른쪽을 한 칸 밀기
+	static void push_right(int[] arr) {
+		int temp = arr[arr.length-1];
+		for(int i = arr.length-1; i > 0; i--) {
+			arr[i] = arr[i-1];
+		}
+		arr[0] = temp;
+	}
 
 }
