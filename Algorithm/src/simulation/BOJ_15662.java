@@ -1,3 +1,5 @@
+package simulation;
+
 
 import java.util.*;
 
@@ -12,7 +14,7 @@ import java.util.*;
  * 톱니바퀴를 일차원 배열로 표현하고, 회전을 한칸 밀기 한칸 당기기로 표현, 회전시키기 전에 모든 방향을 미리 구해놓아야함에 유의
  */
 
-public class Main {
+public class BOJ_15662 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
