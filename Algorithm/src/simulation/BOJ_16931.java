@@ -1,3 +1,4 @@
+package simulation;
 
 import java.util.*;
 /*
@@ -7,7 +8,7 @@ import java.util.*;
  * 
  */
 
-public class Main {
+public class BOJ_16931 {
 	
 	static int[] dx = {1, -1, 0, 0};
 	static int[] dy = {0, 0, 1, -1};
