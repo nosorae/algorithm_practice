@@ -1,3 +1,4 @@
+package simulation;
 
 import java.util.*;
 /*
@@ -10,7 +11,7 @@ import java.util.*;
  * 
  */
 
-public class Main {
+public class BOJ_1917 {
 	static boolean[] cubeNum = new boolean[7];
 	static int[] dx = {-1, 0, 1, 0 };
 	static int[] dy = {0, 1, 0, -1 };
