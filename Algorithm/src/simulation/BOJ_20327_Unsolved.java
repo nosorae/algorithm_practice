@@ -1,10 +1,11 @@
+package simulation;
 
 import java.util.*;
 /*
  * 백준 20327번 배열돌리기6
  */
 
-public class Main {
+public class BOJ_20327_Unsolved {
 
 
 	public static void main(String[] args) {

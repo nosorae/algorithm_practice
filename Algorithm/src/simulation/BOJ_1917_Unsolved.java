@@ -11,7 +11,7 @@ import java.util.*;
  * 
  */
 
-public class BOJ_1917 {
+public class BOJ_1917_Unsolved {
 	static boolean[] cubeNum = new boolean[7];
 	static int[] dx = {-1, 0, 1, 0 };
 	static int[] dy = {0, 1, 0, -1 };
