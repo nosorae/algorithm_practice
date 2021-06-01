@@ -33,5 +33,30 @@ public class ArrayFunctions {
 		}
 		arr[0] = temp;
 	}
+	
+	//칸끼리 바꾸기
+	static void swap(int[][] arr, int x, int y, int nx, int ny) {
+		int temp = arr[x][y];
+		arr[x][y] = arr[nx][ny];
+		arr[nx][ny] = temp;
+	}
+	
+	//한 정사각형 부분배열을 한 칸이라고 생각하고 바꾸기
+	static void swapSubArray(int[][] arr, int x, int y, int nx, int ny, int size) {
+		for(int i = x; i < x+size; i++){
+			for(int j = y; j < y+size; j++) {
+				swap(arr, i, j, nx+(i-x), ny+(j-y));
+			}
+		}
+	}
+	
+	//한 정사각형 부분배열을 한 칸이라고 생각하고 이동시키기
+	static void copySubArray(int[][] arr, int[][] result, int x, int y, int nx, int ny, int size) {
+		for(int i = nx; i < nx+size; i++) {
+			for(int j = ny; j < ny+size; j++) {
+				result[i][j] = arr[x+(i-nx)][y+(j-ny)];
+			}
+		}
+	}
 
 }

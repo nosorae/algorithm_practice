@@ -37,7 +37,7 @@ public class Main {
 				arr = operation3(arr, 1<<l);
 				break;
 			case 4:
-				operation4(arr, 1<<l);
+				arr = operation4(arr, 1<<l);
 				break;
 			case 5:
 				operation5(arr, 1<<l);
@@ -46,10 +46,10 @@ public class Main {
 				operation6(arr, 1<<l);
 				break;
 			case 7:
-				operation7(arr, 1<<l);
+				arr = operation7(arr, 1<<l);
 				break;
 			case 8:
-				operation8(arr, 1<<l);
+				arr =operation8(arr, 1<<l);
 			}
 			
 			
@@ -125,26 +125,82 @@ public class Main {
 		int col = y+size;
 		for(int i = x; i < row; i++) {
 			for(int j = y; j < col; j++) {
-				result[i][j] =  arr[row-1-(j-y)][i];
-				
+				result[i][j] =  arr[row-1-(j-y)][y+(i-x)];
 			}
 		}
 		
 	}
 	
-	static void operation4(int[][] arr, int size) {
-
+	static int[][] operation4(int[][] arr, int size) {
+		int[][] result = new int[arr.length][arr[0].length];
+		for(int i = 0; i < arr.length; i+=size) {
+			for(int j = 0; j < arr[i].length; j+=size) {
+				rotate_left(arr, result, i, j, size);
+			}
+		}
+		return result;
 	}
+	static void rotate_left(int[][] arr, int[][] result, int x, int y, int size) {
+		int row = x+size;
+		int col = y+size;
+		for(int i = x; i < row; i++) {
+			for(int j = y; j < col; j++) {
+				result[i][j] =  arr[x+(j-y)][col-1-(i-x)];
+			}
+		}
+	}
+	
+	static void swapSubArray(int[][] arr, int x, int y, int nx, int ny, int size) {
+		for(int i = x; i < x+size; i++){
+			for(int j = y; j < y+size; j++) {
+				swap(arr, i, j, nx+(i-x), ny+(j-y));
+			}
+		}
+	}
+	static void copySubArray(int[][] arr, int[][] result, int x, int y, int nx, int ny, int size) {
+		for(int i = nx; i < nx+size; i++) {
+			for(int j = ny; j < ny+size; j++) {
+				result[i][j] = arr[x+(i-nx)][y+(j-ny)];
+			}
+		}
+	}
+	
 	static void operation5(int[][] arr, int size) {
+		for(int i = 0; i < arr.length/2; i+=size) {
+			for(int j = 0; j < arr[i].length; j+=size) {
+				swapSubArray(arr, i, j, arr.length - i - size, j, size);
+			}
+		}
 
 	}
 	static void operation6(int[][] arr, int size) {
+		for(int i = 0; i < arr.length; i+=size) {
+			for(int j = 0; j < arr[i].length/2; j+= size) {
+				swapSubArray(arr, i, j, i, arr[i].length - j - size, size);
+			}
+		}
 
 	}
-	static void operation7(int[][] arr, int size) {
+	static int[][] operation7(int[][] arr, int size) {
+		int[][] result = new int[arr.length][arr[0].length];
+		for(int i = 0; i < result.length; i+=size) {
+			for(int j = 0; j < result[i].length; j+= size) {
+				copySubArray(arr, result, arr.length-size-j, i, i, j, size);
+			}
+		}
+		return result;
 
 	}
-	static void operation8(int[][] arr, int size) {
+	static int[][] operation8(int[][] arr, int size) {
+		
+		int[][] result = new int[arr.length][arr[0].length];
+		
+		for(int i = 0; i < result.length; i+=size) {
+			for(int j = 0; j < result[i].length; j+= size) {
+				copySubArray(arr, result, j, arr[0].length-size-i, i, j, size);
+			}
+		}
+		return result;
 
 	}
 
