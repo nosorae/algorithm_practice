@@ -1,3 +1,5 @@
+package simulation;
+
 
 import java.util.*;
 /*
@@ -8,7 +10,7 @@ import java.util.*;
  * 그리고 로봇의 위치가 N을 초과할 일이 없다는 것을 깨달으면 쉬운문제
  */
 
-public class Main {
+public class BOJ_20055 {
 
 
 	public static void main(String[] args) {
