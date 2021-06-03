@@ -68,5 +68,13 @@ public class ArrayFunctions {
 		}
 		arr[1] = temp;
 	}
+	
+	//주어진 인덱스가 주어진 배열안에 있는지 경계검사하는 함수
+	static boolean isIn(int[][] arr, int nx, int ny) {
+		if(nx >=0 && nx < arr.length && ny >=0 && ny < arr[0].length) 
+			return true;
+		else
+			return false;
+	}
 
 }
