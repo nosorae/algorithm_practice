@@ -1,5 +1,4 @@
-
-
+package simulation;
 
 import java.util.*;
 /*
@@ -18,7 +17,7 @@ import java.util.*;
  * 시간차가 많이 날지 모르겠다 .
  */
 
-public class Main {
+public class BOJ_16235 {
 
 	static int[] dx = { -1, -1, -1, 0, 0, 1, 1, 1 };
 	static int[] dy = { -1, 0, 1, -1, 1, -1, 0, 1 };
