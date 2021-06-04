@@ -1,10 +1,10 @@
 Algorithm, Today I Learned
 --------------------------
-BOJ ID : nosorae
+- BOJ ID : nosorae
 
-Start Date : 2021.5.25~
+- Start Date : 2021.5.25~
 
-Language : Java
+- Language : Java
 
-Class Name Format : Platform_Number_(Unsolved or Hard)
+- Class Name Format : Platform_Number_(Unsolved or Hard)
 
