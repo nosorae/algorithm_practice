@@ -1,3 +1,5 @@
+package dfs;
+
 import java.io.*;
 import java.util.*;
 
@@ -11,7 +13,7 @@ import java.util.*;
  * 4. 제출할 때는 디버깅에 쓴 프린트문 지워라 괜히 틀리고 시간낭비 하지말고
  */
 
-class Main {
+class BOJ_13023 {
 	static LinkedList<Integer>[] graph;
 	static boolean[] check;
 	static int n; 
