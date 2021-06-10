@@ -1,11 +1,16 @@
+package dfs;
+
 import java.util.*;
 import java.io.*;
 
 /*
- * 백준 
+ * 백준  1260 DFS와 BFS
+ * 1. BufferedWriter/Reader 쓸 때 함수에 throws IOException 잊지 말자 
+ * 2. static 빼먹지 말자
+ * 3. 정점의 스타트가 1인지 0인지 잘 파악해라
  */
 
-class Main {
+class BOJ_1260 {
     static boolean[] check;
     static LinkedList<Integer>[] graph;
     static BufferedReader br;
