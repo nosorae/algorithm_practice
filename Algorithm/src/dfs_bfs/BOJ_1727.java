@@ -1,3 +1,6 @@
+package dfs_bfs;
+
+
 import java.io.*;
 import java.util.*;
 
@@ -8,7 +11,7 @@ import java.util.*;
  * 	   무슨 말이냐면, dfs bfs의 기본은 모든 정점을 방문해보는 것이 기본인데 내가
  * 	 return dfs 이렇게 불러서 false가 오면 더이상 탐색 안해도 되는 거 맞긴한데, true가 와도 더 이상 다른 정점을 확인하지 않아서 오답이 나왔다. 
  */
-class Main {
+class BOJ_1727 {
 
 	static BufferedReader br;
 	static int loop; // 전체 루프횟수
@@ -86,6 +89,11 @@ class Main {
 
 	}
 }
+
+/*
+ * 1과 2를 반복하고 싶다면 3-x를 3-1나 3-2로 시작하면 반복할 수 있다. 
+ * 나는 모듈러스밖에 생각안하고 있었는데 무조건 0부터 시작해야하는 단점?이 존재했다.
+ */
 
 //
 //import java.util.*;
