@@ -1,3 +1,5 @@
+package dfs_bfs;
+
 import java.util.*;
 import java.io.*;
 
@@ -7,7 +9,7 @@ import java.io.*;
  * 	    따라서 다음 날 부터 1일이다.
  */
 
-public class Main {
+public class BOJ_7576 {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static int n;
     static int m;
