@@ -7,6 +7,8 @@ import java.io.*;
  * 백준 7576 토마토
  * 1. 문제 조건분석을 제대로 해라 정답은 '며칠이 지나야'이다. 
  * 	    따라서 다음 날 부터 1일이다.
+ * 2. 단계별로 시행되기 때문에 내가 푼 방식대로 무엇이 더 작은지 검사할 필요가 없다.
+ * 	    그처 여러 시작점을 큐에 넣고 bfs를 실행하면된다.
  */
 
 public class BOJ_7576 {
@@ -96,3 +98,69 @@ public class BOJ_7576 {
     }
     
 }
+
+
+//import java.util.*;
+//
+//class Pair {
+//    int x;
+//    int y;
+//    Pair(int x, int y) {
+//        this.x = x;
+//        this.y = y;
+//    }
+//}
+//
+//public class Main {
+//    public static final int[] dx = {0, 0, 1, -1};
+//    public static final int[] dy = {1, -1, 0, 0};
+//    public static void main(String args[]) {
+//        Scanner sc = new Scanner(System.in);
+//        int m = sc.nextInt();
+//        int n = sc.nextInt();
+//        int[][] a = new int[n][m];
+//        int[][] dist = new int[n][m];
+//        Queue<Pair> q = new LinkedList<Pair>();
+//        for (int i=0; i<n; i++) {
+//            for (int j=0; j<m; j++) {
+//                a[i][j] = sc.nextInt();
+//                dist[i][j] = -1;
+//                if (a[i][j] == 1) {
+//                    q.add(new Pair(i, j));
+//                    dist[i][j] = 0;
+//                }
+//            }
+//        }
+//        while (!q.isEmpty()) {
+//            Pair p = q.remove();
+//            int x = p.x;
+//            int y = p.y;
+//            for (int k=0; k<4; k++) {
+//                int nx = x+dx[k];
+//                int ny = y+dy[k];
+//                if (0 <= nx && nx < n && 0 <= ny && ny < m) {
+//                    if (a[nx][ny] == 0 && dist[nx][ny] == -1) {
+//                        q.add(new Pair(nx, ny));
+//                        dist[nx][ny] = dist[x][y] + 1;
+//                    }
+//                }
+//            }
+//        }
+//        int ans = 0;
+//        for (int i=0; i<n; i++) {
+//            for (int j=0; j<m; j++) {
+//                if (ans < dist[i][j]) {
+//                    ans = dist[i][j];
+//                }
+//            }
+//        }
+//        for (int i=0; i<n; i++) {
+//            for (int j=0; j<m; j++) {
+//                if (a[i][j] == 0 && dist[i][j] == -1) {
+//                    ans = -1;
+//                }
+//            }
+//        }
+//        System.out.println(ans);
+//    }
+//}

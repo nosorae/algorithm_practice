@@ -1,7 +1,12 @@
+package dfs_bfs;
+
 import java.util.*;
 import java.io.*;
+/*
+ * 백준 7562 나이트의 이동
+ */
 
-public class Main {
+public class BOJ_7562 {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static int[][] map;
     static int[][] dist;
