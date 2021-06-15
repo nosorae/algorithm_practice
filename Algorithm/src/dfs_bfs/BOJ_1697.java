@@ -1,3 +1,5 @@
+package dfs_bfs;
+
 import java.util.*;
 import java.io.*;
 
@@ -8,7 +10,7 @@ import java.io.*;
  * 3. bfs탐색시 시작점에대한 예외처리 필요성을 깨달음!!
  */
 
-public class Main {
+public class BOJ_1697 {
     
     final static int size = 100001;
     static int[] direc = {-1, 1, 2};
