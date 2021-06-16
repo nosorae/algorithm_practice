@@ -1,3 +1,5 @@
+package dfs_bfs;
+
 import java.util.*;
 import java.io.*;
 /*
@@ -5,7 +7,7 @@ import java.io.*;
  * 1. 양의 방향으로 이동하는 next정점은 최대값 경계처리만 해줘도 되고
  *    음의 방향으로 이동하는 next정점은 최소값 경계처리만 해줘도 된다.
  */
-public class Main {
+public class BOJ_13913 {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static int start;
     static int end;
