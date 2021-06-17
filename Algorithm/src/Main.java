@@ -6,73 +6,53 @@ import java.io.*;
  *    음의 방향으로 이동하는 next정점은 최소값 경계처리만 해줘도 된다.
  */
 public class Main {
-    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    static int start;
-    static int end;
-    static final int size = 200001;
-    static int[] dist = new int[size];
-    static int[] prev = new int[size];
-    static int[] direc = {-1, 1, 2};
+   
     public static void main(String[] args) throws IOException {
-    	StringTokenizer st = new StringTokenizer(br.readLine());
-        start = Integer.parseInt(st.nextToken());
-        end = Integer.parseInt(st.nextToken());
-        
-        if(start == end) {
-            System.out.println(0);
-            printTrace(end, start);
-            return;
-        }
-        else {
-            int ans = bfs(start, end);
-            System.out.println(ans);
-            printTrace(end, start);
-        }
-            
-        
-        
+    	int[] arr = {3,5, 7, 9, 1};
+    	int[] ans = solution(arr);
+    	for(int n : ans) {
+    		System.out.print(n+" ");
+    	}
+    	
+    	ArrayList<Integer> list = new ArrayList<Integer>();
+    	list.add(1);
+    	list.add(2);
+    	
+    
     }
     
-    static int bfs(int start, int end) {
-        Queue<Integer> q = new LinkedList<Integer>();
-        q.add(start);
-        dist[start] = 1;
+    static int[] solution(int[] arr) {
+        int[] count = new int[101];
+        for(int n : arr) {
+            count[n]++;
+        }
         
-        while(!q.isEmpty()) {
-            int cur = q.poll();
-            
-            for(int i = 0; i < 3; i++) {
-                int next = cur + direc[i];
-                if(i == 2) 
-                    next = cur * direc[i];
-                if(next >= 0 && next < size && dist[next] == 0) {
-                    prev[next] = cur;
-                    
-                    if(next == end)
-                        return dist[cur];
-                    
-                    
-                    q.add(next);
-                    dist[next] = dist[cur] + 1;
-                   
+        int size = 0;
+        for(int i = 1; i < 101; i++) {
+            if(count[i] > 1) {
+                size++;
+            }
+        }
+        
+
+        int[] ans = new int[size];
+        
+        if(size == 0) {
+        	ans = new int[1];
+        	ans[0] = -1;
+        }
+        else {
+        	int ans_idx = 0;
+            for(int i = 1; i < 101; i++) {
+                if(count[i] > 1) {
+                    ans[ans_idx] = count[i];
+                    ans_idx++;
                 }
             }
+        }
         
-        }
-        return 0;
-    }
-    static void printTrace(int end, int start) {
-        Stack<Integer> stack = new Stack<Integer>();
-        int cur = end;
-        while(cur != start) {
-            stack.push(cur);
-            cur = prev[cur];
-        }
-        stack.push(cur);
         
-        while(!stack.isEmpty()) {
-            System.out.print(stack.pop()+" ");
-        }
+        return ans;
         
     }
 }
