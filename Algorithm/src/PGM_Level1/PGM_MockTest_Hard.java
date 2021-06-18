@@ -13,7 +13,7 @@ package PGM_Level1;
  * new int[] {} 배열 초기화 방법
  * 최고점수 할때 max 함수 만들어서 중첩해서 두번쓰는 방법 -> 맥스 구해놓고 맥스와 같은 숫자 갯수 찾아서 
  */
-class PGM_MathGiveUp {
+class PGM_MockTest_Hard {
     public int[] solution(int[] answers) {
         int[] student1 = {1, 2, 3, 4, 5};
         int[] student2 = {2, 1, 2, 3, 2, 4, 2, 5};
