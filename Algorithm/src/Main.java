@@ -8,7 +8,8 @@ import java.io.*;
 public class Main {
    
     public static void main(String[] args) throws IOException {
-    	int[] arr = {3,5, 7, 9, 1};
+    	
+    	int[] arr = {3, 5, 7, 9, 1, 1, 3, 3, 3, 3, 4, 1, 4, 4};
     	int[] ans = solution(arr);
     	for(int n : ans) {
     		System.out.print(n+" ");
@@ -23,14 +24,13 @@ public class Main {
     
     static int[] solution(int[] arr) {
         int[] count = new int[101];
+        boolean[] check = new boolean[101];
+        int size = 0;
         for(int n : arr) {
             count[n]++;
-        }
-        
-        int size = 0;
-        for(int i = 1; i < 101; i++) {
-            if(count[i] > 1) {
-                size++;
+            if(count[n] == 2) {
+            	check[n] = true;
+            	size++;
             }
         }
         
@@ -44,7 +44,7 @@ public class Main {
         else {
         	int ans_idx = 0;
             for(int i = 1; i < 101; i++) {
-                if(count[i] > 1) {
+                if(check[i]) {
                     ans[ans_idx] = count[i];
                     ans_idx++;
                 }
