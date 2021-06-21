@@ -6,5 +6,5 @@ Algorithm, Today I Learned
 
 - Language : Java
 
-- Class Name Format : Platform_Number_(Unsolved or Hard)
+- Class Name Format : Platform_Name_("Unsolved" or "Hard" or "")
 
