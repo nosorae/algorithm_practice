@@ -1,7 +1,7 @@
 package sort;
 import java.util.*;
 
-public class Sort_Custom {
+public class Sort_Custom_Library {
 
 	public static void main(String[] args) {
 		Student[] arr = new Student[10];
@@ -107,3 +107,10 @@ class Student {
 	}
 
 }
+
+//이렇게 하면 played로 내림차순인데(id와 순서다름 주의) played가 같다면  id기준으로 오름차순인 compareTo함수가 된다.
+//꼭 1 -1 0 이렇게 리턴할 필요가 없다!
+//public int compareTo(Music other) {
+//    if(this.played == other.played) return this.id - other.id;
+//    return other.played - this.played;
+//  }
