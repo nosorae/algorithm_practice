@@ -13,7 +13,7 @@ public class CollectionManual {
 		q.add(1);
 		q.peek();
 		q.poll();
-		
+		//-------------------------------------------------------------------
 		//<key, value> Æä¾î
 		HashMap<Integer, String> map = new HashMap<Integer, String>();
 		map.put(1, "a");
@@ -56,9 +56,48 @@ public class CollectionManual {
 		System.out.println(map);
 		System.out.println(map.toString());
 		
+		HashMap<Integer, Integer> maps = new HashMap<>();
+		maps.put(1, 2);
+		maps.put(2, 3);
+		maps.put(3, 4);
+		Set<Map.Entry<Integer, Integer>> entries = maps.entrySet();
 		
-			
+		for(Map.Entry<Integer, Integer> entry : entries)
+			System.out.println(entry.getValue());
 		
+		
+		
+		//------------------------------------------------------------------
+		LinkedList<Integer> list = new LinkedList<Integer>();
+    	list.add(1);
+    	list.add(2);
+    	
+    	Integer[] arr3 = new Integer[list.size()];
+    	arr3[0] = -1;
+    	arr3[1] = -2;
+    	Integer[] arr2 = list.toArray(arr3);
+    	for(int a : arr2) {
+    		System.out.println(a);
+    	}
+    	for(int a : arr3) {
+    		System.out.println(a);
+    	}
+    	System.out.println(arr3 == arr2);
+    	
+    	
+    	String[] array = new String[3];
+
+    	array[0] = "Test1";
+    	array[1] = "Test2";
+    	array[2] = "Test3";
+
+    	ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(array));
+		
+		arrayList.add("Test4");
+		for(String str : arrayList) {
+			System.out.println(str);
+		}
+		//--------------------------------------------------------------
 	
 		
 	}
