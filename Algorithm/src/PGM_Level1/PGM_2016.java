@@ -4,7 +4,6 @@ package PGM_Level1;
  * 21.06.17
  * 프로그래머스 2016 https://programmers.co.kr/learn/courses/30/lessons/12901#
  * 날짜 옮겨적는 실수 때문에 시간 많이 잡아먹음.
- * switch문을 쓰면 좀 더 깔끔해보일 수 있다. 
  */
 
 class PGM_2016 {

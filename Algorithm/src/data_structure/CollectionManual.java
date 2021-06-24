@@ -8,6 +8,7 @@ public class CollectionManual {
 		//리스트의 배열 
 		ArrayList<Integer>[] g = (ArrayList<Integer>[]) new ArrayList[3];
 		
+		g[0] = new ArrayList<Integer>(3);
 		//큐 선언과 삽입 조회 삭제
 		Queue<Integer> q = new LinkedList<Integer>();
 		q.add(1);
