@@ -1,4 +1,6 @@
-import java.util.*;
+package bruteforce;
+
+import java.util.Scanner;
 /*
  * BOJ 3085 사탕게임 https://www.acmicpc.net/problem/3085
  * N*N 2차원 배열에서 문자가 다른 4방향 인접 두칸을 바꿔보고 그 때의 같은 색으로 연속된 최대 길이 출력
@@ -16,7 +18,7 @@ import java.util.*;
 //for (int i=0; i<n; i++) {
 //	a[i] = sc.next().toCharArray();
 //}
-public class Main {
+public class BOJ_3085 {
 	static int max;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
