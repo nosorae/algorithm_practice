@@ -1,3 +1,5 @@
+package bruteforce;
+
 
 /*
  * BOJ 14500 테트로미노
@@ -12,7 +14,7 @@
  * 
  */
 import java.util.*;
-public class Main {
+public class BOJ_14500 {
 	static int[][][] nextPos = {
 			{{0, 1}, {0, 2}, {0, 3}}, // 일자 누운 것
 			{{1, 0}, {2, 0}, {3, 0}}, // 일자 선 것
