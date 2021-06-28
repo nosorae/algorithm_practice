@@ -1,3 +1,4 @@
+package bruteforce;
 
 /*
  * BOJ 15654 N°ú M (5)
@@ -7,7 +8,7 @@
  */
 import java.util.*;
 import java.io.*;
-public class Main {
+public class BOJ_15654 {
 	static BufferedWriter bw;
 	static int[] input;
 	static boolean[] check;
