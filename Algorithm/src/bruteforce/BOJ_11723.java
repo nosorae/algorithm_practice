@@ -1,3 +1,4 @@
+package bruteforce;
 
 /*
  * BOJ 11723 С§Че
@@ -7,7 +8,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Main {
+public class BOJ_11723 {
 	public static void main(String[] args) throws IOException {	
 		BufferedReader br = new  BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
