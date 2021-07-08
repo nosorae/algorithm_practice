@@ -1,3 +1,4 @@
+package dynamic;
 
 /*
  * 2021.07.08
@@ -14,7 +15,7 @@
 
 import java.util.*;
 import java.io.*;
-public class Main  {
+public class BOJ_14002  {
 	static BufferedReader br = new  BufferedReader(new InputStreamReader(System.in));
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	public static void main(String[] args) throws IOException {	
