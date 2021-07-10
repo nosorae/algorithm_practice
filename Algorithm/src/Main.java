@@ -3,8 +3,8 @@
  * 2021.07.10
  * BOJ 11055 가장 큰 증가 부분 수열 https://www.acmicpc.net/problem/11055
  * d[i]를 인덱스 i까지 고려했을 때 합이 가장 큰 증가 부분 수열로 정의한다.
- * d[i]는 d[j] (0 <= j < i)중에  val[j] < val[i] 중에 d[j]가 최대인 d[j] + val[i]이다.
- */
+ * d[i]는 d[j] (0 <= j < i)중에  val[j] < val[i] 중에 d[j]가 최대인 d[j] + val[i]이다.커밋
+ */   
 
 import java.util.*;
 import java.io.*;
