@@ -13,7 +13,7 @@ package dynamic;
 
 import java.util.*;
 import java.io.*;
-public class BOJ_2156  {
+public class BOJ_2156_HARD  {
 	static BufferedReader br = new  BufferedReader(new InputStreamReader(System.in));
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	public static void main(String[] args) throws IOException {
