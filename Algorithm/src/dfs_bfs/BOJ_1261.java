@@ -1,4 +1,4 @@
-
+package dfs_bfs;
 /*
  * 2021.07.11
  * BOJ 1261 ¾Ë°í½ºÆÌ https://www.acmicpc.net/problem/1261
@@ -10,7 +10,7 @@
  */
 import java.util.*;
 import java.io.*;
-public class Main  {
+public class BOJ_1261  {
 	static int[] dx = {0, 0, 1, -1};
 	static int[] dy = {1, -1, 0, 0}; //µ¿¼­³²ºÏ
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
