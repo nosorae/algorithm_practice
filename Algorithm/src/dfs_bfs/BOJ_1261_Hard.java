@@ -10,7 +10,7 @@ package dfs_bfs;
  */
 import java.util.*;
 import java.io.*;
-public class BOJ_1261  {
+public class BOJ_1261_Hard  {
 	static int[] dx = {0, 0, 1, -1};
 	static int[] dy = {1, -1, 0, 0}; //µ¿¼­³²ºÏ
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

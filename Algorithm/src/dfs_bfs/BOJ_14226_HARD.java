@@ -11,7 +11,7 @@ package dfs_bfs;
  */
 import java.util.*;
 import java.io.*;
-public class BOJ_14226  {
+public class BOJ_14226_HARD  {
 	static final int Max = 2000;
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
