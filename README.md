@@ -8,4 +8,3 @@ Algorithm, Today I Learned
 
 - Class Name Format : Platform_Name_("Unsolved" or "Hard" or "")
 
-- 7월 9일부터 10문제 단위로 업로드 중
