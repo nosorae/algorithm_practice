@@ -4,7 +4,7 @@ Algorithm, Today I Learned
 
 - Start Date : 2021.5.25~
 
-- Language : Java
+- Language : main branch - Java, master branch - Kotlin  
 
 - Class Name Format : Platform_Name_("Unsolved" or "Hard" or "")
 
