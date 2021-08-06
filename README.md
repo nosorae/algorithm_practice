@@ -1,7 +1,7 @@
-# algorithm_modularization
-
 Algorithm, **T**oday **I** **L**earned
 ---
+
+
 - ID : BOJ - nosorae, Programmers - 노소래
 
 - Language : main branch - Java, master branch - Kotlin  
@@ -9,7 +9,9 @@ Algorithm, **T**oday **I** **L**earned
 - Class Name Format : Name(BOJ는 문제번호로, Programmers 는 임의로 설정)_("Unsolved" or "Hard" or "")
 
 
-클래스 형식
+
+
+##클래스 형식
 
 ```
 
