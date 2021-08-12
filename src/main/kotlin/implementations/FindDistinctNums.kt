@@ -1,6 +1,6 @@
 /**
  * 2021.08.06
- * 두개 뽑아서 더하기
+ * Level 1. 두개 뽑아서 더하기
  * https://programmers.co.kr/learn/courses/30/lessons/68644
  * 브루트포스로 모든 경우의 수를 다 해보고
  * set 으로 중복 검사를 한다.
@@ -10,7 +10,7 @@
  * withIndex 를 사용하면 다음과 같은 IndexedValue 에 데이터를 담아서 Iterator 로 반환해준다.
  * public data class IndexedValue<out T>(public val index: Int, public val value: T)
  *
- * 왜 프로그래머스에서 forEachIndexed 를 사용할 수 없지??
+ * TODO 왜 프로그래머스에서 forEachIndexed 를 사용할 수 없지??
  *
  *
  */
