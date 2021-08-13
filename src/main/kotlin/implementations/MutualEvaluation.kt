@@ -1,8 +1,6 @@
-import java.lang.Math.pow
+package implementations
+
 import java.util.*
-import kotlin.collections.HashSet
-import kotlin.math.sqrt
-import kotlin.math.pow
 
 /**
  * 2021.08.13
@@ -14,7 +12,7 @@ import kotlin.math.pow
  * 자신이 평가한 점수중에서가 아니다, 문제 조건을 잘 읽어야한다.
  * 중복과 최대최소여부를 검사하는 부분에서 N^2
  */
-class Solution {
+class MutualEvaluation {
     lateinit var scores: Array<IntArray>
     fun solution(scores: Array<IntArray>): String {
         this.scores = scores
@@ -99,19 +97,4 @@ class Solution {
             }
         }
     }
-}
-
-fun main() {
-    println(
-        Solution().solution(
-            arrayOf(
-                intArrayOf(90, 0, 0, 0, 0),
-                intArrayOf(45, 0 ,0 ,0, 0),
-                intArrayOf(88, 0, 0, 0, 0),
-                intArrayOf(57, 0, 0, 0, 0),
-                intArrayOf(90, 0, 0, 0, 0),
-            )
-        )
-    )
-
 }
