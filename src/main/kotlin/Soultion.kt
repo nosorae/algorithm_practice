@@ -1,117 +1,26 @@
-import java.lang.Math.pow
+import java.io.*
 import java.util.*
-import kotlin.collections.HashSet
-import kotlin.math.sqrt
-import kotlin.math.pow
 
 /**
- * 2021.08.13
- * Level1. 상호평가
- * https://programmers.co.kr/learn/courses/30/lessons/83201
+ * 21.08.26
+ * BOJ 14500 테트로미노
+ * https://www.acmicpc.net/problem/14500
+ * 백준선생님의 풀이
+ * 재귀함수로 해결 ㅗ 모양을 제외하면 모두 한점에서 시작해서 연속 3번 방문하는 모양임에 유의
+ * ㅗ 는 재귀함수로 할 수 없으니 ㅗ 만 따로 떼어 for 문으로 처리한다.
+ * 그럼 이 문제가 dfs 로 풀 수 있다고 해야하나? ㄴㄴ 모든 정점을 한번만 방문한다는 dfs 의 목적과 맞지 않다.
+ * 같은 곳을 두번 방문하는 경우가 필요하다. 그래서 이 경우에는 dfs 가 아닌 부르트포스이다.
+ * 코드로는 한줄차이지만 시간복잡도는 크게 차이난다.
+ * cnt == 4 면 최대값 갱신
+ * 범위조건
+ * 방문여부 check
+ * 재귀하기 전 check 하고 나와서 check 를 풀어줘야한다.
+ * check 를 푸는 부분이 dfs 와의 차이이다.
+ * 한번 더 방문하는 경우가 생기기 때문에 check 를 풀어주는 것이다.
+ * ㅗ 까지 dfs 로 처리하는 것은 코드상 비효율 적이다.
  *
- * 평가를 한 것과 받은 점수가 다르다. i, j 와 j, i 가 다르다.
- * 자신을 평가한 점수중에서 자기자신에게 부여한 점수가 유일한 최대 또는 유일한 최소이다.
- * 자신이 평가한 점수중에서가 아니다, 문제 조건을 잘 읽어야한다.
- * 중복과 최대최소여부를 검사하는 부분에서 N^2
+ *
  */
-class Solution {
-    lateinit var scores: Array<IntArray>
-    fun solution(scores: Array<IntArray>): String {
-        this.scores = scores
 
-
-        checkSelfScoreUniqueMinOrMax()
-
-        scores.forEach {
-            println(Arrays.toString(it))
-        }
-
-        return getStudentsGrade()
-    }
-
-
-    fun isSelfScoreUnique(studentIdx: Int): Boolean {
-        for (i in scores.indices) {
-            if (i != studentIdx && scores[i][studentIdx] == scores[studentIdx][studentIdx]) {
-                return false
-            }
-        }
-        return true
-    }
-
-    fun checkSelfScoreUniqueMinOrMax() {
-
-
-        for (i in scores.indices) {
-            var min = 101
-            var max = -1
-            if (isSelfScoreUnique(i)) {
-                for (j in scores.indices) {
-                    if (min > scores[j][i]) {
-                        min = scores[j][i]
-                    }
-                    if (max < scores[j][i]) {
-                        max = scores[j][i]
-                    }
-                }
-                if (min == scores[i][i] || max == scores[i][i]) {
-                    scores[i][i] = -1
-                }
-            }
-
-        }
-    }
-
-    fun getStudentsGrade(): String {
-        var answer: String = ""
-        for (i in scores.indices) {
-            var sum = 0
-            var cnt = 0
-            for (j in scores.indices) {
-                if (scores[j][i] != -1) {
-                    sum += scores[j][i]
-                    cnt += 1
-                }
-            }
-            val average = sum / cnt.toDouble()
-            answer += scoreToGrade(average)
-        }
-        return answer
-    }
-
-
-    fun scoreToGrade(averageScore: Double): String {
-        when {
-            averageScore >= 90 -> {
-                return "A"
-            }
-            averageScore >= 80 -> {
-                return "B"
-            }
-            averageScore >= 70 -> {
-                return "C"
-            }
-            averageScore >= 50 -> {
-                return "D"
-            }
-            else -> {
-                return "F"
-            }
-        }
-    }
-}
-
-fun main() {
-    println(
-        Solution().solution(
-            arrayOf(
-                intArrayOf(90, 0, 0, 0, 0),
-                intArrayOf(45, 0 ,0 ,0, 0),
-                intArrayOf(88, 0, 0, 0, 0),
-                intArrayOf(57, 0, 0, 0, 0),
-                intArrayOf(90, 0, 0, 0, 0),
-            )
-        )
-    )
-
-}
+val br = BufferedReader(InputStreamReader(System.`in`))
+val bw = BufferedWriter(OutputStreamWriter(System.out))
