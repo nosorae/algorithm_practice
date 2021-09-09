@@ -8,44 +8,37 @@ import java.io.OutputStreamWriter
  * BOJ
  *
  */
-val br = BufferedReader(InputStreamReader(System.`in`))
-val bw = BufferedWriter(OutputStreamWriter(System.out))
-
-var n = 0
-lateinit var nums: MutableList<Int>
-var answer = 0
-
+val INPUT = "NCJAEZRCLASJLYODEPRLYZRCLASJLCPEHZDTOPDZQLNZTY"
 fun main() {
-    initVariables()
-    makeAllCase(0, nums)
-    printAnswer()
-}
-fun initVariables() {
-    n = br.readLine().toInt()
-    nums = mutableListOf()
-    br.readLine().split(" ").map { nums.add(it.toInt()) }
-    answer = 0
-    br.close()
-}
 
-fun makeAllCase(localAnswer: Int, localNums: MutableList<Int>) {
-    val size = localNums.size
-    if (size == 2) {
-        answer = Math.max(answer, localAnswer)
-        return
-    }
-    for(i in 1 until size - 1) {
-        val nextValue = localAnswer + (localNums[i-1] * localNums[i+1])
-        val nextNums = mutableListOf<Int>().apply {
-            addAll(localNums)
-            removeAt(i)
+    for (i in 0 until 13) {
+        if (13 - i > 0) {
+            println("Case Key ${13-i} : ${decryptToPlainText(13-i)}")
         }
-        makeAllCase(nextValue, nextNums)
+
+        if (i == 0) continue
+
+        if (13 + i < 26) {
+            println("Case key ${13+i} : ${decryptToPlainText(13+i)}")
+        }
     }
+
 }
 
-fun printAnswer() {
-    bw.write(answer.toString())
-    bw.flush()
-    bw.close()
-}
+
+private fun decryptToPlainText(key: Int): String =
+    INPUT
+        .lowercase()
+        .map {
+            if (it - key < 'a') {
+                val dist = 'a' - (it - key)
+                'z' - dist + 1
+            } else {
+                (it - key)
+            }
+        }.joinToString("") { "$it" }
+
+
+
+//answer : cryptography and steganography are two sides of a coin
+
