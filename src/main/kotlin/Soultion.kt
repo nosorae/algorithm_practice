@@ -1,35 +1,30 @@
 import java.util.*
 
 /**
- * 2021.01.01 다리를 지나는 트럭
- * https://programmers.co.kr/learn/courses/30/lessons/42583
- * 큐에 더미를 넣는 방식으로 트럭의 위치를 잡아주었음
+ * 2021.01.02
+ * 조이스틱
+ * https://programmers.co.kr/learn/courses/30/lessons/42860
+ * 예시 문제를 꼭 먼저 풀고 실제 문제를 푼다.
  */
 class Solution {
-    fun solution(bridge_length: Int, limit: Int, truck_weights: IntArray): Int {
+    fun solution(name: String): Int {
         var answer = 0
-        var cur = 0
-        var weightSum = 0
-        val q = LinkedList<Int>() as Queue<Int>
+        val len = name.length
 
-        do {
 
-            answer += 1
-
-            if (q.size >= bridge_length) {
-                val w = q.poll()
-                if (w >= 0) weightSum -= w
-            }
-
-            if (cur < truck_weights.size && weightSum + truck_weights[cur] <= limit) {
-                q.add(truck_weights[cur])
-                weightSum += truck_weights[cur]
-                cur += 1
-            } else {
-                q.add(0)
-            }
-        } while (weightSum != 0)
+        for (i in 0..name.length - 1) {
+            answer += getAlphabetDistance(name[i])
+        }
 
         return answer
     }
+
+    fun getAlphabetDistance(cur: Char): Int =
+        if (cur in 'A'..'N') {
+            (cur - 'A')
+        } else {
+            ('Z' - cur) + 1
+        }
+    fun getRightPosition(cur: Int, len: Int): Int = if (cur + 1 < len) cur + 1 else 0
+    fun getLeftPosition(cur: Int, len: Int): Int = if (cur - 1 >= 0) cur - 1 else len - 1
 }
