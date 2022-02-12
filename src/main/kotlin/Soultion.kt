@@ -12,6 +12,7 @@ class Solution {
         val len = name.length
 
 
+
         for (i in 0..name.length - 1) {
             answer += getAlphabetDistance(name[i])
         }
