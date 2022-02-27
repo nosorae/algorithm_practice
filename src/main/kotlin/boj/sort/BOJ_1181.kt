@@ -41,3 +41,24 @@ fun main(args: Array<String>) {
             print("$str\n")
         }
 }
+
+
+/**
+ * 다른 사람의 풀이
+ * https://www.acmicpc.net/source/36744481
+ * TreeSet 에 주목하자
+ */
+fun main() {
+    val br = BufferedReader(InputStreamReader(System.`in`))
+    val n = br.readLine().toInt()
+    val set = TreeSet<String>(compareBy({ it.length }, { it }))
+    val sb = StringBuilder()
+    for (i in 0 until n) {
+        set.add(br.readLine())
+    }
+    set.forEach { sb.append(it).append('\n') }
+    println(sb)
+}
+
+
+
