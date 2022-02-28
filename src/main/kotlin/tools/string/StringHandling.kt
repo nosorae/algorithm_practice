@@ -81,7 +81,55 @@ fun main() {
 
 
     println("\n[I]")
+    println(text.indices)
+    println(text.iterator().next()) // A
+    println(" ".isBlank()) // true
+    println(" ".isEmpty()) // false
+    println(" ".isNotBlank()) // false
+    println(" ".isNotEmpty()) // true
+    println(" ".isNullOrBlank()) // true
+    println(" ".isNullOrEmpty()) // false
+    println(text.indexOf('d', 5)) // 6
+    println(text.indexOf("ev", 5)) // 9
+    println(text.indexOf("ev", 10)) // -1
+    println(text.indexOfFirst { c -> c > 'a'}) // 1
+    println(text.indexOfLast { c -> c > 'a' }) // 17
+    println(text.indexOfAny(listOf("and", "And", "roid", "developers"))) // (0, And)
+    println(text.indexOfAny(listOf("and", "roid", "developers"))) //  (3, roid)
+    println(text.indexOfAny(listOf("and", "developers"))) //  (8, developers)
 
+    println("\n[L]")
+    println(text.lowercase()) // android developers
+    println(text.last()) // s
+    println(text.last { c -> c < 's'}) // r
+    println(text.lastOrNull()) // s
+    println(text.length) // 18
+    println(text.lastIndexOf('p')) // 14
+    println(text.lastIndexOf("pe")) // 14
+    println(text.lastIndexOf("an", ignoreCase = true)) // 0
+    println(text.lastIndexOf("an", 3, ignoreCase = true)) // 0
+    println(text.lastIndexOfAny(listOf("and", "And", "roid", "developers"))) // 8
+    println(text.lastIndexOfAny(listOf("developers", "and", "And"))) //  8
+    println(text.lastIndexOfAny(listOf("and", "developers"))) //  8
+    println(text.lastIndex) // 17
+    println(text.lineSequence())
+    println(text.lines())
+
+    println("\n[M]")
+    println(text.map { c -> c.code })
+    println(text.mapIndexed { i, c -> c.code + i})
+
+    println("\n[O]")
+    text.orEmpty()
+
+
+    println("\n[P]")
+    println("\n[R]")
+    println("\n[S]")
+    println("\n[T]")
+    println("\n[U]")
+    println("\n[W]")
+    println("\n[Z]")
 
 
 
