@@ -117,13 +117,32 @@ fun main() {
 
     println("\n[M]")
     println(text.map { c -> c.code })
-    println(text.mapIndexed { i, c -> c.code + i})
+    println(text.map { c -> null })
+    println(text.mapIndexed { i, c -> "${c.code} $i"})
+    println(text.matches(Regex("o")))
+    println(text.mapIndexedNotNull { index, c -> null})
+    println(text.maxOf { c -> c.code }) // 비었으면 예외 // 118
+    println(text.maxOfOrNull {c -> c.code }) // 비면 null 반환 //118
+    println(text.minOf { c -> c.code }) // 32
+    println(text.minOfOrNull { c -> c.code }) // 32
+    println(text.minOfWith(Comparator<Int> { o1, o2 -> if (o1 == o2) 0 else if (o1 < o2) 1 else -1 }) { c -> c.code }) // 내림차순일 때 min // 118
+    println(text.minOfWithOrNull(Comparator<Int> { o1, o2 -> if (o1 == o2) 0 else if (o1 < o2) 1 else -1 }) { c -> c.code }) // 내림차순일 때 min // 118
+    println(text.maxOfWith(Comparator<Int> { o1, o2 -> if (o1 == o2) 0 else if (o1 < o2) 1 else -1 }) { c -> c.code }) // 내림차순일 때 max // 32
+    println(text.maxOfWithOrNull(Comparator<Int> { o1, o2 -> if (o1 == o2) 0 else if (o1 < o2) 1 else -1 }) { c -> c.code }) // 내림차순일 때 max // 32
+
 
     println("\n[O]")
     text.orEmpty()
 
 
     println("\n[P]")
+    println(text.plus(1))
+    println(text + 1)
+    println(text.padStart(20, '['))
+    println(text.padEnd(20, ']').padStart(22, '['))
+    println(text.partition { c -> c > 'l' })
+    println(text.prependIndent())
+
     println("\n[R]")
     println("\n[S]")
     println("\n[T]")
