@@ -144,12 +144,90 @@ fun main() {
     println(text.prependIndent())
 
     println("\n[R]")
-    println("\n[S]")
-    println("\n[T]")
-    println("\n[U]")
-    println("\n[W]")
-    println("\n[Z]")
+    println(text.random())
+    println("".randomOrNull()) // null
+    println(text.reversed()) // srepoleveD diordnA
+    println(text.repeat(3)) // Android developersAndroid developersAndroid developers
+    println(text.replace('d', '-')) // An-roi- -evelopers
+    println(text.repeat(3).replace("dev", "-")) // Android -elopersAndroid -elopersAndroid -elopers
+    println("-".repeat(3).replace("dev", "-")) // Android -elopersAndroid -elopersAndroid -elopers
+    println(text.replace(Regex("d."), "-")) // An-oi--velopers
+    println(text.replaceFirst('d', '-'))
+    println(text.replaceAfter('d', "|replacement|"))
+    println(text.replaceAfterLast('d', "|replacement|"))
+    println(text.replaceBefore('d', "|replacement|"))
+    println(text.replaceBeforeLast('d', "|replacement|"))
+    println(text.replaceRange(0, 3, "-"))
+    println(text.replaceRange(0..3, "-")) // -oid developers
+    println(text.removePrefix("An")) // droid developers
+    println(text.removePrefix("-")) // Android developers
+    println(text.removeSuffix("rs")) // Android develope
+    println(text.removeSuffix("-")) // Android developers
+    println(text.removeRange(0, 3)) // roid developers
+    println(text.removeRange(0..3)) // oid developers
+    println(text.removeSurrounding("An", "An")) // Android developers
+    println(text.removeSurrounding("An", "rs")) // droid develope
+    println(text.runningFold(0) {a, c -> a + c.code})
 
+
+    println("\n[S]")
+    println(text.substring(0..3)) // Andr
+    println(text.substring(0, 3)) // And
+    println(text.substring(3)) // roid developers
+    println(text.substringAfter(delimiter = 'd', "default")) // roid developers
+    println(text.substringAfter(delimiter = '-', "default")) // default
+    println(text.substringAfterLast(delimiter = 'd', "default")) // evelopers
+    println(text.substringBefore(delimiter = 'd', "default")) // An
+    println(text.substringBeforeLast(delimiter = 'd', "default")) // Android  (' ' space 있음 주의)
+    println(text.slice(0..3))
+    println(text.slice(listOf(0, 5, 17)))
+    println(text.startsWith("a", 1, true)) // false
+    println(text.startsWith("a", 0, true)) // true
+    println(text.startsWith("a")) // false
+    println(text.startsWith("A")) // true
+    println(text.split("d")) // [An, roi,  , evelopers]
+    println(text.split("d", limit = 2)) // [An, roi,  , evelopers]
+    println(text.split("A")) // [, ndroid developers]
+    println(text.split("A")) // [, ndroid developers]
+    println(text.split('d')) // [An, roi,  , evelopers]
+    println(text.split(Regex("d."))) // [An, oi, , velopers]
+    println("dd".split("d")) // [, , ]
+    println(text.scan(0) { a, c -> a + c.code })
+
+    println("\n[T]")
+    println("1A".toInt(16))
+    println("13".toInt())
+    println(text.toIntOrNull())
+    println(text.trim())
+    println(text.trimEnd())
+    println(text.trimStart())
+    println(text.trim { c -> c > 'd'})
+    println(text.trimEnd { c -> c > 'd'})
+    println(text.trimStart { c -> c > 'd'})
+
+    println(text.take(5)) // Andro
+    println(text.takeLast(5)) // opers
+    println(text.takeWhile { c -> c > 'd' }) //
+    println(text.takeWhile { c -> c < 'e' }) // A
+    println(text.takeLastWhile { c -> c > 'd' }) // evelopers
+
+    println("\n[U]")
+    println(text.uppercase()) // ANDROID DEVELOPERS
+
+    println("\n[W]")
+    println("abcd".windowed(3, 1, true)) // [abc, bcd, cd, d]
+    println("abcd".windowed(3, 1, false)) // [abc, bcd]
+    println(text.windowed(5, 5, true)) // [Andro, id de, velop, ers]
+    println(text.windowed(5, 1, false)) // [Andro, ndroi, droid, roid , oid d, id de, d dev,  deve, devel, evelo, velop, elope, loper, opers]
+    println(text.windowed(5, 1, false) { c -> "${c}_"})
+    println(text.windowed(5, 1, false).map { c -> "${c}_"})
+
+
+    println("\n[Z]")
+    println(text.zip("other string"))
+    println(text.zip("other string") { c1, c2 -> c1.code + c2.code })
+    println(text.zipWithNext())
+    println(text.zipWithNext { a, b -> a.code+b.code  })
 
 
     //println(text.coerceAtLeast("a"))
