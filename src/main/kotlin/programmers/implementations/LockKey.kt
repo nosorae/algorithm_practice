@@ -1,7 +1,4 @@
-package implementations
-
-import java.text.SimpleDateFormat
-import java.util.*
+package programmers.implementations
 
 // https://programmers.co.kr/learn/courses/30/lessons/60059
 

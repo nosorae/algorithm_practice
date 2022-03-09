@@ -1,4 +1,4 @@
-package implementations
+package programmers.implementations
 
 import kotlin.math.pow
 import kotlin.math.sqrt
