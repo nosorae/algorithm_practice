@@ -2,6 +2,7 @@ package programmers.implementations
 
 /**
  * 신고 결과 받기
+ * LV.1
  * https://programmers.co.kr/learn/courses/30/lessons/92334
  */
 fun solution(id_list: Array<String>, report: Array<String>, k: Int): IntArray =
