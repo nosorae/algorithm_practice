@@ -54,3 +54,4 @@ class Solution {
 fun main() {
     println(Solution().solution("AAABBAB"))
 }
+
