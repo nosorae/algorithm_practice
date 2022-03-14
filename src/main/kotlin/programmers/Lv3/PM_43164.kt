@@ -2,6 +2,10 @@ package programmers.Lv3
 
 import java.util.*
 
+/**
+ * 여행경로 (DFS)
+ * https://programmers.co.kr/learn/courses/30/lessons/43164
+ */
 class Solution {
 
     val graph = mutableMapOf<String, LinkedList<Pair<String, Int>>>()

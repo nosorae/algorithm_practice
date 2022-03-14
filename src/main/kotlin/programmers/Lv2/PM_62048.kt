@@ -1,7 +1,7 @@
 package programmers.Lv2
 
 /**
- * 멀쩡한 사각형
+ * 멀쩡한 사각형 (수학)
  * https://programmers.co.kr/learn/courses/30/lessons/62048
  * 나는 일차 방정식 그래프로 생각해서 계산해줬는데
  * 다른 사람의 풀이 보고 간단한 식으로도 풀 수 있다는 것을 알게 되었다.

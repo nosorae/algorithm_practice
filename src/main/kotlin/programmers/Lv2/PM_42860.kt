@@ -2,7 +2,7 @@ package programmers.Lv2
 
 /**
  * 2021.01.02
- * 조이스틱
+ * 조이스틱 (그리디, 브루트포스)
  * https://programmers.co.kr/learn/courses/30/lessons/42860
  * 예시 문제를 꼭 먼저 풀고 실제 문제를 푼다.
  * 그리디 문제였지만 실전에선 지금처럼 맘편하게 브루트포스로 풀 것 같다.
