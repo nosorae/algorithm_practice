@@ -3,6 +3,9 @@ package programmers.Lv3
 /**
  * 섬 연결하기 (그리디 - 최소신장트리 - Kruskal, Prim)
  * https://programmers.co.kr/learn/courses/30/lessons/42861
+ * 어이없는 실수로 삽질
+ * for (i in graph[cur].indices) 에서 i 는 인덱스 0, 1, 2... 이지 graph[cur] 의 원소 값이 아니다!!
+ * 이것 때문에 뭐야 로직은 맞는데 왜 틀려?? 했다 다시는 이런 실수 하지 말자
  */
 val graph = mutableListOf<MutableList<Int>>()
 lateinit var checkVisit: Array<Boolean>
@@ -16,9 +19,10 @@ fun solution(n: Int, costs: Array<IntArray>): Int {
         o1[2] - o2[2]
     }
 
+
     var cnt = 0
     var i = 0
-    while (i < n && cnt != n - 1) {
+    while (i < edges.size && cnt != n - 1) {
 
         val arr = edges[i]
         val from = arr[0]
@@ -33,7 +37,6 @@ fun solution(n: Int, costs: Array<IntArray>): Int {
             graph[to].remove(from)
         } else {
             cnt++
-            println(i)
             answer += cost
         }
         i++
@@ -44,12 +47,11 @@ fun solution(n: Int, costs: Array<IntArray>): Int {
 
 fun checkCycle(cur: Int, prev: Int): Boolean {
     checkVisit[cur] = true
-    for (next in graph[cur].indices) {
+    for (i in graph[cur].indices) { // 여기서 next 값은 index 값이지 graph[cur] 의 원소 값이 아니다!!!!
+        val next = graph[cur][i]
         if (next != prev) {
-            if (checkVisit[next]) {
-                return true
-            }
-            if(checkCycle(next, cur)) return true
+            if (checkVisit[next]) return true
+            if (checkCycle(next, cur)) return true
         }
     }
     return false
