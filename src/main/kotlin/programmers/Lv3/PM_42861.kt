@@ -6,16 +6,17 @@ package programmers.Lv3
  * 어이없는 실수로 삽질
  * for (i in graph[cur].indices) 에서 i 는 인덱스 0, 1, 2... 이지 graph[cur] 의 원소 값이 아니다!!
  * 이것 때문에 뭐야 로직은 맞는데 왜 틀려?? 했다 다시는 이런 실수 하지 말자
+ * for ((s, e, c) in sortedCosts) 이런식으로 디스트럭쳐링할 수 있다.
  */
 val graph = mutableListOf<MutableList<Int>>()
 lateinit var checkVisit: Array<Boolean>
-fun solution(n: Int, costs: Array<IntArray>): Int {
+fun mySolution(n: Int, costs: Array<IntArray>): Int {
     var answer = 0
 
     for (i in 0 until n) {
         graph.add(mutableListOf())
     }
-    val edges = costs.sortedWith { o1, o2 ->
+    val edges = costs.sortedWith { o1, o2 -> // sortedBy 가 더 적절
         o1[2] - o2[2]
     }
 
@@ -31,7 +32,7 @@ fun solution(n: Int, costs: Array<IntArray>): Int {
 
         graph[from].add(to)
         graph[to].add(from)
-        checkVisit = Array(n) { false }
+        checkVisit = Array(n) { false } // 방문 체크 배열 매 사이클 검사마다 초기화
         if (checkCycle(from, -1)) {
             graph[from].remove(to)
             graph[to].remove(from)
@@ -55,4 +56,27 @@ fun checkCycle(cur: Int, prev: Int): Boolean {
         }
     }
     return false
+}
+
+
+
+fun solution(n: Int, costs: Array<IntArray>): Int {
+    val sortedCosts = costs.sortedBy { it[2] } // good
+    val visited = mutableSetOf(0)
+
+    var answer = 0
+    while (visited.size < n) {
+        for ((s, e, c) in sortedCosts) { // Destructuring
+            if (visited.contains(s) or visited.contains(e)) {
+                if (visited.contains(s) and visited.contains(e)) {
+                    continue
+                }
+                visited.add(s)
+                visited.add(e) // 새로운 정점만 들어간다는 Set 의 특성 활용
+                answer += c
+                break
+            }
+        }
+    }
+    return answer
 }
