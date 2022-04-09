@@ -49,4 +49,20 @@ fun main() {
             println("Error")
         }
     )
+
+    // 주의! create 연산자는 개발자가 직접 Emitter 를 제어하므로, 콜백을 직접 모두 제거해주지 않으면 메모리 누수가 발생할 수 있으니 주의한다.
+
+    /**
+     * create 끝, just 연산자 시작
+     * 해당 아이템을 그대로 발행하는 Observable 생성해줌
+     * 인자로 넣은 아이템을 차례로 발행하고
+     * 한 개 이상의 같은 타입의 아이템을 넣을 수 있다.
+     */
+    source = Observable.just("Hello", "World")
+    source.subscribe { println(it) }
+
+    // null 을 넣고 싶다면? RxJava 는 기본적으로 null 을 허용하지 않아서 just 에 null 넣으면 안된다! 그 때는 empty 를 쓰자
+    source = Observable.empty()
+    source.subscribe { println(it) }
+
 }
