@@ -65,4 +65,18 @@ fun main() {
     source = Observable.empty()
     source.subscribe { println(it) }
 
+    /**
+     * from~
+     * 이미 참조하고 있는 자료구조, Future, Callable, Publisher 를
+     * from 으로 시작하는 연산자를 통해 Observable 로 변환해보기
+     *
+     * Future 가 좀 어렵게 느껴질 수 있는데 비동기적인 작업의 결과를 구할 대 사용한다고 이해하면 된다.
+     * Publisher 는 잠재적인 아이템 발행을 제공하는 생산자로 Subscriber 로부터 요청을 받아 아이템을 발행
+     **/
+
+    // Iterable 예시, Array 는 vargs 던데?
+    val arr = listOf("a", "b", "c")
+    source = Observable.fromIterable(arr)
+    source.subscribe { println(it) }
+
 }
