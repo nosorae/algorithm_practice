@@ -1,6 +1,10 @@
 package tools.rx
 
 import io.reactivex.Observable
+import io.reactivex.Single
+import java.util.concurrent.Executors
+import java.util.concurrent.Flow.Publisher
+import java.util.concurrent.Future
 
 
 fun main() {
@@ -78,5 +82,35 @@ fun main() {
     val arr = listOf("a", "b", "c")
     source = Observable.fromIterable(arr)
     source.subscribe { println(it) }
+
+    val future = Executors.newSingleThreadExecutor()
+        .submit(
+            { Thread.sleep(5000) }, // 왜 뒤에까지 5초가 미뤄지지?
+            "Hello World"
+        )
+    source = Observable.fromFuture(future)
+    source.subscribe { println(it) }
+
+    val publisher = org.reactivestreams.Publisher<String> { subscriber ->
+        subscriber.onNext("A")
+        subscriber.onNext("B")
+        subscriber.onNext("C")
+        subscriber.onComplete()
+    }
+    source = Observable.fromPublisher(publisher)
+    source.subscribe { println(it) }
+
+    /**
+     * Single : Observable 과 다르게 단 하나의 아이템만을 발행
+     * - just 로 초기화 시 하나의 인자로만 초기화 가능
+     * - create 로 초기화 시 Emitter 의 onSuccess 로 onNext, onComplete 대체, 또는 onError 로 오류를 구독자에게 통지
+     */
+
+    Single.just("Single Test").subscribe { it -> println(it) }
+    Single.create<String> { emitter ->
+        emitter.onSuccess("Hello World")
+    }.subscribe { it ->
+        println(it)
+    }
 
 }
