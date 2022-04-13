@@ -44,3 +44,7 @@ private fun parseSchemaTypeWithType(text: String): String {
 private fun parseDataClass(text: String): String {
     return text.split("\n").filter { it.contains("public val") }.map { it.trim().drop(11) }.joinToString("\n") { it }
 }
+
+private fun parseDataClass2(text: String): String {
+    return text.split("\n").filter { it.contains("val") }.map { it.trim().drop(4) }.joinToString("\n") { "\t- $it" }
+}
