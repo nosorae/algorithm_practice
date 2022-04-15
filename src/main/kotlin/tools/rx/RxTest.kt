@@ -1,5 +1,6 @@
 package tools.rx
 
+import io.reactivex.Maybe
 import io.reactivex.Observable
 import io.reactivex.Single
 import java.util.concurrent.Executors
@@ -104,6 +105,7 @@ fun main() {
      * Single : Observable 과 다르게 단 하나의 아이템만을 발행
      * - just 로 초기화 시 하나의 인자로만 초기화 가능
      * - create 로 초기화 시 Emitter 의 onSuccess 로 onNext, onComplete 대체, 또는 onError 로 오류를 구독자에게 통지
+     * - 단일 아이템을 발행하니까 HTTP 요청/응답과 같은 이벤트를 처리하는 경우에 자주 사용됨
      */
 
     Single.just("Single Test").subscribe { it -> println(it) }
@@ -112,5 +114,18 @@ fun main() {
     }.subscribe { it ->
         println(it)
     }
+
+    /**
+     * Maybe
+     * - Single 과 유사하지만 발행하지 않을 수도 있다는 차이가 있다.
+     * - onSuccess 이후 onComplete 호출할 필요 없음
+     */
+
+    Maybe.create<Int> { em ->
+        em.onSuccess(100)
+        em.onComplete()
+    }.doOnSuccess { println("onSuccess") }
+        .doOnComplete { println("onComplete") }
+        .subscribe { println("subscribe") }
 
 }
