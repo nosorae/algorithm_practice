@@ -1,5 +1,6 @@
 package tools.rx
 
+import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -16,7 +17,7 @@ fun main() {
     println()
 
     /**
-     * Observable : 데이터 순차적으로 발행 (onNext), 데이터 발행 끝났음을 알림 (onComplete), 오류발생 알림 (onError) to Observer
+     * [Observable] : 데이터 순차적으로 발행 (onNext), 데이터 발행 끝났음을 알림 (onComplete), 오류발생 알림 (onError) to Observer
      * Observer : Observable 을 구독함
      * Emitter : Observable create 시 이것을 이용하여 직접 아이템을 발행하고 완료 및 오류의 알림을 직접 설정할 수 있음.
      */
@@ -102,7 +103,7 @@ fun main() {
     source.subscribe { println(it) }
 
     /**
-     * Single : Observable 과 다르게 단 하나의 아이템만을 발행
+     * [Single] : Observable 과 다르게 단 하나의 아이템만을 발행
      * - just 로 초기화 시 하나의 인자로만 초기화 가능
      * - create 로 초기화 시 Emitter 의 onSuccess 로 onNext, onComplete 대체, 또는 onError 로 오류를 구독자에게 통지
      * - 단일 아이템을 발행하니까 HTTP 요청/응답과 같은 이벤트를 처리하는 경우에 자주 사용됨
@@ -116,9 +117,10 @@ fun main() {
     }
 
     /**
-     * Maybe
+     * [Maybe]
      * - Single 과 유사하지만 발행하지 않을 수도 있다는 차이가 있다.
      * - onSuccess 이후 onComplete 호출할 필요 없음
+     * - empty 나 just~firstElement
      */
 
     Maybe.create<Int> { em ->
@@ -127,5 +129,18 @@ fun main() {
     }.doOnSuccess { println("onSuccess") }
         .doOnComplete { println("onComplete") }
         .subscribe { println("subscribe") }
+
+
+    /**
+     * [Completable]
+     * 아이템 발행 없이, 단지 정상적으로 실행이 종료되었는지에 대해 관심을 가짐
+     * onNext, onSuccess 없음
+     * onComplete 나 onError 만 있을 뿐..
+     */
+    Completable.create { em ->
+        println("1")
+        em.onComplete()
+        println("2")
+    }.subscribe { println("onComplete") }
 
 }
