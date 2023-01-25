@@ -1,0 +1,29 @@
+package tools.coroutine
+
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+
+fun zipTest() = runBlocking {
+    val nums = (1..3).asFlow()
+    val strs = flowOf("일", "이", "삼")
+    nums.zip(strs) { a, b -> "${a} - $b" }
+        .collect { println(it) }
+
+    println("---")
+
+    val nums2 = (1..5).asFlow().onEach {
+        delay(2000L)
+        println("number $it")
+    }
+    val strs2 = flowOf("일", "이").onEach {
+        delay(100L)
+        println("숫자 $it")
+    }
+
+    nums2.zip(strs2) { a, b -> "${a} -  $b" }
+        .collect { println(it) } // 더 긴 것에 짝맞춰서 프린트함을 확인
+
+
+}
