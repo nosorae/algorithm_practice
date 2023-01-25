@@ -5,7 +5,7 @@ import kotlinx.coroutines.runBlocking
 
 import kotlinx.coroutines.*
 
-fun main() = runBlocking<Unit> { // 중부모
+fun testJobCancel() = runBlocking {
     val job = launch { // 부모
         launch(Job()) {
             println(coroutineContext[Job])
