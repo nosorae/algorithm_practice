@@ -1,5 +1,6 @@
 package tools.coroutine
 
 fun main() {
-    zipTest()
+    errorZipTest()
+    errorZipTest2()
 }
