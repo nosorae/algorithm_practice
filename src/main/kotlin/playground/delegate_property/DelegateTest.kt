@@ -1,4 +1,4 @@
-package tools.delegate_property
+package playground.delegate_property
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking

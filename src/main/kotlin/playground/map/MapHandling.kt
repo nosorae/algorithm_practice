@@ -1,6 +1,4 @@
-package tools.map
-
-import java.util.*
+package playground.map
 
 
 fun main() {

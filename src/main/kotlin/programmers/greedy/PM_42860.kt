@@ -1,4 +1,4 @@
-import java.util.*
+package programmers.greedy
 
 /**
  * 2021.01.02
@@ -6,12 +6,10 @@ import java.util.*
  * https://programmers.co.kr/learn/courses/30/lessons/42860
  * 예시 문제를 꼭 먼저 풀고 실제 문제를 푼다.
  */
-class Solution {
+class Solution42860 {
     fun solution(name: String): Int {
         var answer = 0
         val len = name.length
-
-
 
         for (i in 0..name.length - 1) {
             answer += getAlphabetDistance(name[i])

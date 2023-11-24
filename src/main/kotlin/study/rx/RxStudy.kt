@@ -1,12 +1,10 @@
-package tools.rx
+package study.rx
 
 import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Observable
 import io.reactivex.Single
 import java.util.concurrent.Executors
-import java.util.concurrent.Flow.Publisher
-import java.util.concurrent.Future
 
 
 fun main() {

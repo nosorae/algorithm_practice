@@ -1,4 +1,4 @@
-package tools.array.tornado
+package util.implementation.tornado
 
 /**
  * 정사각형 2차원 배열에 소용돌이 모양 그리기

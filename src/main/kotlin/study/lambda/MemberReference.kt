@@ -1,10 +1,8 @@
-package tools.lambda
+package study.lambda
 
-import kotlin.reflect.KClass
 import kotlin.reflect.KFunction1
 import kotlin.reflect.KFunction2
 import kotlin.reflect.KProperty1
-import kotlin.reflect.KProperty
 
 data class Car(val price: Int) {
     fun isExpensive(): Boolean {

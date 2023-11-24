@@ -1,4 +1,4 @@
-package tools.lambda
+package study.lambda
 
 fun main() {
     1.test { // 수신객체 1

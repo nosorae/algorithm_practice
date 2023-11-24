@@ -1,4 +1,4 @@
-package tools.coroutine
+package study.coroutine
 
 fun main() {
     errorZipTest()
