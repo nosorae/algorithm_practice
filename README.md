@@ -6,7 +6,8 @@ Algorithm, **T**oday **I** **L**earned
 
 - Language : main branch - Java, master branch - Kotlin  
 
-- Class Name Format : Name(BOJ,PM 문제 번호)_("Unsolved" or "Hard" or "")
+- ~~File Name Format : Name_(BOJ,PM 문제 번호)_("Unsolved" or "Hard" or "")~~
+- 파일명을 번호로 하니 복습할 때 찾기 번거로워서 파일명을 {BOJ|PM}_{임의로 지은 이름}_{레벨} 으로 점진적으로 바꾸려고함. (~12/20 (수))
 
 - 문제에 대한 회고[는 블로그에서](https://nosorae.tistory.com/category/Algorithm%20%28%20%EB%AC%B8%EC%A0%9C%20%29)
 
