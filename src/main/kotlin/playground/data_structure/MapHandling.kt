@@ -8,6 +8,9 @@ fun main() {
     map["thfo"] = 10
     map["thfo"] = 10
     map["thfo"] = 10
+    map.getOrPut(key = "getOrPut", defaultValue =  { 10 }).dec() // TODO:: defaultValue 가 람다로 들어감 주의
+    map.getOrElse(key= "getOrElse", defaultValue = { 10 }) // put 하는 과정이 없다는 게 getOrPut 과의 차이점
+    map.getOrDefault(key = "getOrDefault", 10) // put 하는 과정이 없다는 게 getOrPut 과의 차이점, 람다가 아닌 값을 바로 전달하는 게 getOrElse과의 차이점
 
 
     val mapTest = mutableMapOf<String, Int>()
