@@ -1,4 +1,4 @@
-package god_of_java;
+package godofjava;
 
 // GodOfJava Vol1. 4장
 public class ProfilePrint {
