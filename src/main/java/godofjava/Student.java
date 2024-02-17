@@ -1,6 +1,7 @@
 package godofjava;
 
 // GodOfJava Vol1. 8장
+// GodOfJava Vol1. 12장
 public class Student {
     String name;
     String address;
@@ -22,16 +23,54 @@ public class Student {
     public String toString() {
         return name + " " + address + " " + phone + " " + email;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+
+        if (obj == null) return false;
+        if (this.getClass() != obj.getClass()) return false;
+
+        Student other = (Student) obj;
+
+        if (name == null) {
+            if (other.name != null) return false;
+        } else if (!name.equals(other.name)) {
+            return false;
+        }
+
+        if (address == null) {
+            if (other.address != null) return false;
+        } else if (!address.equals(other.address)) {
+            return false;
+        }
+
+        if (phone == null) {
+            if (other.phone != null) return false;
+        } else if (!phone.equals(other.phone)) {
+            return false;
+        }
+
+        if (email == null) {
+            if (other.email != null) return false;
+        } else if (!email.equals(other.email)) {
+            return false;
+        }
+
+        return true;
+    }
 }
 
 class ManageStudent {
     public static void main(String[] args) {
         ManageStudent manageStudent = new ManageStudent();
 
-        Student[] students = null;
-        students = manageStudent.addStudent();
+//        Student[] students = null;
+//        students = manageStudent.addStudent();
+//
+//        manageStudent.printStudents(students);
 
-        manageStudent.printStudents(students);
+        manageStudent.checkEquals();
     }
 
     public Student[] addStudent() {
@@ -45,6 +84,16 @@ class ManageStudent {
     public void printStudents(Student[] students) {
         for (Student student : students) {
             System.out.println(student);
+        }
+    }
+
+    public void checkEquals() {
+        Student a = new Student("Min", "Seoul", "010XXXXXXXX", "ask@godofjava.com");
+        Student b = new Student("Min", "Seoul", "010XXXXXXXX", "ask@godofjava.com");
+        if (a.equals(b)) {
+            System.out.println("Equal");
+        } else {
+            System.out.println("Not Equal");
         }
     }
 }

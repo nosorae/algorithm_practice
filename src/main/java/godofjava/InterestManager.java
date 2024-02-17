@@ -1,6 +1,8 @@
 package godofjava;
 
 // GodOfJava Vol1. 6장
+// TODO:: switch 에서 default 를중간에 넣으면 어떻게 동장하는지 직접 확인
+
 public class InterestManager {
     public static void main(String[] args) {
         InterestManager interestManager = new InterestManager();
