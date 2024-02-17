@@ -1,5 +1,6 @@
 package godofjava.c.inheritance;
 
+// GodOfJava Vol1. 10장
 public class Animal {
     String name;
     String kind;
@@ -7,6 +8,10 @@ public class Animal {
     int iq;
     boolean hasWing;
     String barkSound;
+
+    public Animal(String name) {
+        this.name = name;
+    }
 
     public void move() {
         System.out.println("move Animal");
@@ -19,6 +24,10 @@ public class Animal {
 
 class Dog extends Animal {
 
+    public Dog(String name) {
+        super(name);
+    }
+
     public void move() {
         System.out.println("move Dog");
     }
@@ -29,6 +38,10 @@ class Dog extends Animal {
 }
 
 class Cat extends Animal {
+    public Cat(String name) {
+        super(name);
+    }
+
     public void move() {
         System.out.println("move Cat");
     }
