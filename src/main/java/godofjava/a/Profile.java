@@ -1,4 +1,4 @@
-package godofjava;
+package godofjava.a;
 
 // GodOfJava Vol1. 2장, 3장
 /*

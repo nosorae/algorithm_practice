@@ -1,4 +1,4 @@
-package godofjava;
+package godofjava.a;
 
 public class ManageHeight {
     int[][] gradeHeights;

@@ -1,4 +1,4 @@
-package godofjava;
+package godofjava.a;
 
 // GodOfJava Vol1. 1장
 public class Calculator {

@@ -1,4 +1,4 @@
-package godofjava;
+package godofjava.a;
 
 // GodOfJava Vol1. 13장 연습문제 2
 public enum HealthInsurance {
