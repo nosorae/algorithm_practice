@@ -5,6 +5,8 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 // GodOfJava Vol2. 8장 연습문제
+// DecimalFormat 문서: [https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html]
+// It has a variety of features designed to make it possible to parse and format numbers in any locale, including support for Western, Arabic, and Indic digits...
 public class FileSizeSummary {
     public static void main(String[] args) {
         FileSizeSummary sample = new FileSizeSummary();
